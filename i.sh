@@ -6,4 +6,3 @@ makepkg -si
 cd
 rm -rf yay
 yay -S calamares
-sudo -i
