@@ -41,16 +41,13 @@ elif [ -d "$TEMPLATE_RELENG" ]; then
     cp -r "$TEMPLATE_RELENG" "$RELENG_DIR"
 else
     echo "[*] No releng or template found. Creating new releng..."
-    mkdir -p "$RELENG_DIR"
-    mkdir -p "$AIROOTFS_DIR"
+    cp -r /usr/share/archiso/configs/releng ~/zori/
+    cd ~/zori/releng
+
 fi
 
 mkdir -p "$OUT_DIR"
 mkdir -p "$AIROOTFS_DIR"
-
-# === STEP 3: Clean airootfs ===
-echo "[*] Cleaning previous build in airootfs..."
-sudo rm -rf "$AIROOTFS_DIR/*"
 
 # === STEP 4: Build Calamares ===
 echo "[*] Cloning Calamares $CALAMARES_TAG..."
