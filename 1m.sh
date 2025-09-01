@@ -6,7 +6,7 @@
 set -e
 
 # === CONFIG ===
-BASE_DIR=~/zori
+BASE_DIR=/home/zori/zori
 RELENG_DIR="$BASE_DIR/releng"
 TEMPLATE_RELENG="$BASE_DIR/releng-template"   # put your template here
 OUT_DIR="$BASE_DIR/out"
