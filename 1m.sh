@@ -62,12 +62,6 @@ cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j"$NUM_CORES"
 sudo make install DESTDIR="$AIROOTFS_DIR"
 
-# === STEP 5: Add default user ===
-echo "[*] Adding default user '$USERNAME'..."
-arch-chroot "$AIROOTFS_DIR" useradd -m -G wheel -s /bin/bash "$USERNAME"
-echo "$USERNAME:$PASSWORD" | arch-chroot "$AIROOTFS_DIR" chpasswd
-echo "%wheel ALL=(ALL) ALL" >> "$AIROOTFS_DIR/etc/sudoers"
-
 # === STEP 6: Add packages ===
 echo "[*] Adding packages..."
 for pkg in "${PACKAGES[@]}"; do
